@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Links</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* A dark slate color */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+
+    <!-- Main Container for the Link Page -->
+    <div class="w-full max-w-xl mx-auto p-4 flex flex-col items-center">
+
+        <!-- Author Profile Section -->
+        <div class="mb-8 text-center">
+            <!-- Author Profile Image -->
+            <!-- Replace the URL in the src attribute below with your own profile picture URL. -->
+            <img class="w-28 h-28 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 border-4 border-blue-500 shadow-xl" 
+                 src="https://imgur.com/a/7IAFB89" 
+                 alt="Author Profile Picture">
+            
+            <!-- Author Name -->
+            <!-- Replace "Your Name" with your actual name or pen name. -->
+            <h1 class="text-3xl sm:text-4xl font-bold mb-1">Jeremy</h1>
+
+            <!-- Author Bio/Tagline -->
+            <!-- Replace this text with a short bio or tagline. -->
+            <p class="text-gray-400 text-md sm:text-lg">Penulis: To be Truly Alive as The Second-Best Poor man</p>
+        </div>
+
+        <!-- Links Section -->
+        <div id="links-container" class="w-full">
+            <!--
+                The links will be generated here by the JavaScript below.
+                You can add or remove links by editing the `links` array in the script.
+            -->
+        </div>
+        
+    </div>
+
+    <!-- JavaScript to handle links and other dynamic content -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // Define your links here.
+            // This is the easiest way to manage your links without editing the HTML directly.
+            // Just change the title and url for each object in the array.
+            const links = [
+                { title: "Beli: To Be Truly Alive as The Second-Best Poor Man", url: "https://example.com/latest-book" },
+                { title: "My Personal Website", url: "https://your-website.com" },
+                { title: "Instagram", url: "https://www.instagram.com/jeremytantra/" },
+            const linksContainer = document.getElementById('links-container');
+            
+            // Function to generate the HTML for each link
+            function createLinkElement(link) {
+                const linkElement = document.createElement('a');
+                linkElement.href = link.url;
+                linkElement.target = "_blank"; // Opens the link in a new tab
+                linkElement.rel = "noopener noreferrer"; // Security best practice
+                linkElement.className = "w-full py-4 px-6 mb-4 text-center text-lg font-semibold bg-blue-600 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-blue-700 shadow-lg";
+                linkElement.textContent = link.title;
+                
+                return linkElement;
+            }
+
+            // Loop through the links array and add them to the page
+            links.forEach(link => {
+                const linkElement = createLinkElement(link);
+                linksContainer.appendChild(linkElement);
+            });
+        });
+    </script>
+
+</body>
+</html>
